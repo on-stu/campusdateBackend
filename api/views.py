@@ -186,14 +186,14 @@ class UsersBySex(APIView):
 
 class EmailChecker(APIView):
     def post(self, request):
-        email = request.data['email']
-        try:
-            isvalid = validate_email(email, verify=True)
-        except Exception as e:
-            print(e)
-        if(isvalid):
-            return Response(status=HTTP_200_OK)
-        return Response(status=HTTP_204_NO_CONTENT)
+        # email = request.data['email']
+        # try:
+        #     isvalid = validate_email(email, verify=True)
+        # except Exception as e:
+        #     print(e)
+        # if(isvalid):
+        #     return Response(status=HTTP_200_OK)
+        return Response(status=HTTP_200_OK)
 
 
 class AddUserChatRoomView(APIView):
