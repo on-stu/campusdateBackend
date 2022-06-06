@@ -1,0 +1,64 @@
+asgiref @ file:///tmp/build/80754af9/asgiref_1625643473416/work
+astroid @ file:///opt/concourse/worker/volumes/live/5aff3c6b-d8ac-4e74-4846-0f446794397d/volume/astroid_1628063157520/work
+autopep8==1.4.4
+beautifulsoup4 @ file:///tmp/build/80754af9/beautifulsoup4_1631874778482/work
+boto3==1.23.7
+botocore==1.26.7
+Bottleneck @ file:///opt/concourse/worker/volumes/live/ac8c8ef3-2ed0-42e9-6ec0-5bb05ad938f6/volume/bottleneck_1607575111469/work
+certifi==2021.10.8
+cffi==1.15.0
+charset-normalizer==2.0.9
+coverage==6.2
+cryptography==36.0.0
+defusedxml==0.7.1
+dj-database-url==0.5.0
+dj-rest-auth==2.2.1
+Django @ file:///tmp/build/80754af9/django_1625585912945/work
+django-allauth==0.47.0
+django-cors-headers==3.10.1
+django-filter==21.1
+django-heroku==0.3.1
+django-storages==1.12.3
+djangorestframework==3.13.0
+djangorestframework-simplejwt==5.0.0
+html5lib @ file:///Users/ktietz/demo/mc3/conda-bld/html5lib_1629144453894/work
+idna==3.3
+isort @ file:///tmp/build/80754af9/isort_1628603791788/work
+jmespath==1.0.0
+lazy-object-proxy @ file:///opt/concourse/worker/volumes/live/a169db40-97bf-4f51-6893-dc751f705b7b/volume/lazy-object-proxy_1616529067444/work
+lxml @ file:///opt/concourse/worker/volumes/live/8f685801-6a2c-4b46-4c46-e3f5cd92e8d9/volume/lxml_1640178281206/work
+mccabe==0.6.1
+mkl-fft==1.3.1
+mkl-random @ file:///opt/concourse/worker/volumes/live/0cda23d8-7460-44b2-7e5d-3c76a8a0ca7e/volume/mkl_random_1626186083266/work
+mkl-service==2.4.0
+numexpr @ file:///opt/concourse/worker/volumes/live/87ac54fe-281a-440d-4d94-26ac99bdabdc/volume/numexpr_1640704258458/work
+numpy @ file:///opt/concourse/worker/volumes/live/21fb9bb9-9731-4901-4403-2bc27cc2cc33/volume/numpy_and_numpy_base_1634106739792/work
+oauthlib==3.1.1
+packaging @ file:///tmp/build/80754af9/packaging_1637314298585/work
+pandas==1.3.5
+pep8==1.7.1
+progressbar==2.5
+psycopg2 @ file:///opt/concourse/worker/volumes/live/7541fe58-2a45-4073-5d69-313e733fc729/volume/psycopg2_1612298592535/work
+py3dns==3.2.1
+pycodestyle==2.5.0
+pycparser==2.21
+PyJWT==2.3.0
+pylint @ file:///opt/concourse/worker/volumes/live/110f293a-445f-477b-4041-2e00ae784083/volume/pylint_1627536795404/work
+pyparsing @ file:///tmp/build/80754af9/pyparsing_1635766073266/work
+pyperclip==1.8.2
+python-dateutil @ file:///tmp/build/80754af9/python-dateutil_1626374649649/work
+python3-openid==3.2.0
+pytz==2021.3
+requests==2.26.0
+requests-oauthlib==1.3.0
+s3transfer==0.5.2
+six @ file:///tmp/build/80754af9/six_1644875935023/work
+soupsieve @ file:///tmp/build/80754af9/soupsieve_1636706018808/work
+sqlparse @ file:///tmp/build/80754af9/sqlparse_1602184451250/work
+toml @ file:///tmp/build/80754af9/toml_1616166611790/work
+typing-extensions @ file:///tmp/build/80754af9/typing_extensions_1631814937681/work
+urllib3==1.26.7
+validate-email-address==1
+webencodings==0.5.1
+whitenoise==5.3.0
+wrapt @ file:///opt/concourse/worker/volumes/live/1381ca3b-f984-4f5c-4f46-a67ca4eeffa5/volume/wrapt_1607574524589/work
