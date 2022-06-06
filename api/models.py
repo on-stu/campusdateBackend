@@ -53,6 +53,7 @@ class User(AbstractBaseUser):
     whoAmIScore = models.JSONField(default=list)
     private = models.BooleanField(default=False)
     skipUser = models.JSONField(default=list)
+    userNotificationToken = models.CharField(max_length=100, blank=True)
 
     USERNAME_FIELD = 'email'
 
