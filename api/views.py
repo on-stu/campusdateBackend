@@ -6,7 +6,7 @@ from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from api.functions.getScore import getScore
 from api.serializers import ChangePasswordSerializer, CharmSerializer, ChatRoomsSerializer, ChatSerializer, EventSerializer, FaqSerializer, NoticeSerializer, ReviewSerializer, UserSerializer
 from api.models import Charm, ChatRoom, Chats, Event, Faq, Notice, Review, User
-from validate_email_address import validate_email_or_fail
+from validate_email_address import validate_email
 from rest_framework.status import HTTP_200_OK, HTTP_204_NO_CONTENT, HTTP_400_BAD_REQUEST, HTTP_404_NOT_FOUND
 import base64
 from rest_framework.viewsets import ModelViewSet
@@ -188,7 +188,7 @@ class EmailChecker(APIView):
     def post(self, request):
         email = request.data['email']
         try:
-            isvalid = validate_email_or_fail(email, verify=True)
+            isvalid = validate_email(email, verify=True)
         except Exception as e:
             print(e)
         if(isvalid):
