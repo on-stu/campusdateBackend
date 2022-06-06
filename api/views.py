@@ -266,6 +266,24 @@ class ChatRoomViewSet(ModelViewSet):
         return Response(chatroom_serializer.data)
 
 
+class ReadChatView(APIView):
+    def post(self, request):
+        print(request.data)
+        chatRoomId = request.data['chatRoomId']
+        readerId = request.data['readerId']
+        chats = Chats.objects.filter(
+            chatRoomId=chatRoomId, receiverId=readerId, isRead=False)
+        response_data = []
+
+        for chat in chats:
+            chat_serializer = ChatSerializer(
+                instance=chat, data={'isRead': True, 'content': chat.content, 'chatRoomId': chat.chatRoomId.id})
+            chat_serializer.is_valid(raise_exception=True)
+            chat_serializer.save()
+            response_data.append(chat_serializer.data)
+        return Response(response_data, status=HTTP_200_OK)
+
+
 class ChatViewSet(ModelViewSet):
     queryset = Chats.objects.all()
     serializer_class = ChatSerializer

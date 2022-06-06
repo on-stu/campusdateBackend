@@ -72,6 +72,9 @@ class ChatSerializer(serializers.ModelSerializer):
         model = Chats
         fields = "__all__"
 
+    def update(self, instance, validated_data):
+        return super().update(instance, validated_data)
+
 
 class ChatRoomsSerializer(serializers.ModelSerializer):
     chats = ChatSerializer(many=True, read_only=True)

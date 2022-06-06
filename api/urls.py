@@ -1,5 +1,5 @@
 from django.urls import path, include
-from .views import AddUserChatRoomView, ChangePasswordView, CharmViewSet, ChatRoomViewSet, ChatViewSet, EmailChecker, EventViewSet, FaqViewSet, LoginView, NoticeViewSet, OneUser, RegisterView, ReviewViewSet, UserView, UsersBySex, ValidateEmailView
+from .views import AddUserChatRoomView, ChangePasswordView, CharmViewSet, ChatRoomViewSet, ChatViewSet, EmailChecker, EventViewSet, FaqViewSet, LoginView, NoticeViewSet, OneUser, ReadChatView, RegisterView, ReviewViewSet, UserView, UsersBySex, ValidateEmailView
 from rest_framework.routers import DefaultRouter
 router = DefaultRouter()
 router.register('notice', NoticeViewSet)
@@ -22,5 +22,6 @@ urlpatterns = [
     path('addChat/', AddUserChatRoomView.as_view()),
     path('change_password/<int:pk>/', ChangePasswordView.as_view(),
          name='auth_change_password'),
+    path('readchat/', ReadChatView.as_view())
 
 ]
