@@ -23,7 +23,7 @@ urlpatterns = [
     path('change_password/<int:pk>/', ChangePasswordView.as_view(),
          name='auth_change_password'),
     path('readchat/', ReadChatView.as_view()),
-    path('acceptuser', AcceptView.as_view())
+    path('acceptuser/', AcceptView.as_view())
 
 
 ]
