@@ -126,6 +126,31 @@ class UserView(APIView):
         return Response(status=HTTP_204_NO_CONTENT)
 
 
+class AcceptView(APIView):
+    def post(self, request):
+        acceptingUser = request.data['acceptingUser']
+        acceptedUser = request.data['acceptedUser']
+
+        acceptingUser_object = User.objects.get(id=acceptingUser)
+        acceptedUser_object = User.objects.get(id=acceptedUser)
+
+        tempAccepted = acceptingUser_object.accepted
+        tempAccepted.append(acceptedUser)
+        acceptingUser_serializer = UserSerializer(
+            acceptingUser_object, data={'accepted': tempAccepted})
+        acceptingUser_serializer.is_valid(raise_exception=True)
+        acceptingUser_serializer.save()
+
+        tempAccepted = acceptedUser_object.accepted
+        tempAccepted.append(acceptingUser)
+        acceptedUser_serializer = UserSerializer(
+            acceptedUser_object, data={'accepted': tempAccepted})
+        acceptedUser_serializer.is_valid(raise_exception=True)
+        acceptedUser_serializer.save()
+
+        return Response(data={"acceptingUser": acceptingUser_serializer.data, "acceptedUser": acceptedUser_serializer.data})
+
+
 class OneUser(APIView):
     permission_classes = [IsAuthenticated]
 
