@@ -1,3 +1,4 @@
+import time
 from rest_framework.views import APIView
 from rest_framework.exceptions import AuthenticationFailed
 from rest_framework.authtoken.models import Token
@@ -7,7 +8,7 @@ from api.functions.getScore import getScore
 from api.serializers import ChangePasswordSerializer, CharmSerializer, ChatRoomsSerializer, ChatSerializer, EventSerializer, FaqSerializer, NoticeSerializer, ReviewSerializer, UserSerializer
 from api.models import Charm, ChatRoom, Chats, Event, Faq, Notice, Review, User
 from validate_email_address import validate_email
-from rest_framework.status import HTTP_200_OK, HTTP_204_NO_CONTENT, HTTP_400_BAD_REQUEST, HTTP_404_NOT_FOUND
+from rest_framework.status import HTTP_200_OK, HTTP_204_NO_CONTENT, HTTP_400_BAD_REQUEST, HTTP_404_NOT_FOUND, HTTP_201_CREATED
 import base64
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.generics import UpdateAPIView
@@ -261,7 +262,7 @@ class FaqViewSet(ModelViewSet):
 
 
 class ChatRoomViewSet(ModelViewSet):
-    queryset = ChatRoom.objects.all()
+    queryset = ChatRoom.objects.all().order_by('-lastAt')
     serializer_class = ChatRoomsSerializer
 
     def create(self, request):
@@ -293,7 +294,6 @@ class ChatRoomViewSet(ModelViewSet):
 
 class ReadChatView(APIView):
     def post(self, request):
-        print(request.data)
         chatRoomId = request.data['chatRoomId']
         readerId = request.data['readerId']
         chats = Chats.objects.filter(
@@ -312,6 +312,19 @@ class ReadChatView(APIView):
 class ChatViewSet(ModelViewSet):
     queryset = Chats.objects.all()
     serializer_class = ChatSerializer
+
+    def create(self, request):
+        chat_serializer = ChatSerializer(data=request.data)
+        chat_serializer.is_valid(raise_exception=True)
+        chat_serializer.save()
+
+        chatRoom_object = ChatRoom.objects.get(id=request.data['chatRoomId'])
+        chatRoom_serializer = ChatRoomsSerializer(
+            chatRoom_object, {'lastAt': time.time()})
+        chatRoom_serializer.is_valid(raise_exception=True)
+        chatRoom_serializer.save()
+
+        return Response(data=chat_serializer.data, status=HTTP_201_CREATED)
 
 
 class CharmViewSet(ModelViewSet):
