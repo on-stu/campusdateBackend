@@ -1,5 +1,5 @@
 from django.urls import path, include
-from .views import AcceptView, AddUserChatRoomView, ChangePasswordView, CharmViewSet, ChatRoomViewSet, ChatViewSet, EmailChecker, EventViewSet, FaqViewSet, LoginView, NoticeViewSet, OneUser, ReadChatView, RegisterView, ReviewViewSet, UserView, UsersBySex, ValidateEmailView
+from .views import AcceptView, AddUserChatRoomView, ChangePasswordView, CharmViewSet, ChatRoomViewSet, ChatViewSet, EmailChecker, EventViewSet, FaqViewSet, LoginView, NoticeViewSet, OneUser, ReadChatView, RegisterView, ReportViewSet, ReviewViewSet, UserView, UsersBySex, ValidateEmailView
 from rest_framework.routers import DefaultRouter
 router = DefaultRouter()
 router.register('notice', NoticeViewSet)
@@ -9,6 +9,7 @@ router.register('chat', ChatViewSet)
 router.register('charm', CharmViewSet)
 router.register('review', ReviewViewSet)
 router.register('event', EventViewSet)
+router.register('report', ReportViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),

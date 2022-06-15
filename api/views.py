@@ -5,8 +5,8 @@ from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from api.functions.getScore import getScore
-from api.serializers import ChangePasswordSerializer, CharmSerializer, ChatRoomsSerializer, ChatSerializer, EventSerializer, FaqSerializer, NoticeSerializer, ReviewSerializer, UserSerializer
-from api.models import Charm, ChatRoom, Chats, Event, Faq, Notice, Review, User
+from api.serializers import ChangePasswordSerializer, CharmSerializer, ChatRoomsSerializer, ChatSerializer, EventSerializer, FaqSerializer, NoticeSerializer, ReportSerializer, ReviewSerializer, UserSerializer
+from api.models import Charm, ChatRoom, Chats, Event, Faq, Notice, Report, Review, User
 from validate_email_address import validate_email
 from rest_framework.status import HTTP_200_OK, HTTP_204_NO_CONTENT, HTTP_400_BAD_REQUEST, HTTP_404_NOT_FOUND, HTTP_201_CREATED
 import base64
@@ -257,6 +257,13 @@ class NoticeViewSet(ModelViewSet):
 class FaqViewSet(ModelViewSet):
     queryset = Faq.objects.all().order_by('-createdAt')
     serializer_class = FaqSerializer
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['title']
+
+
+class ReportViewSet(ModelViewSet):
+    queryset = Report.objects.all().order_by('-createdAt')
+    serializer_class = ReportSerializer
     filter_backends = [filters.SearchFilter]
     search_fields = ['title']
 

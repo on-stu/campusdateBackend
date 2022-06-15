@@ -91,6 +91,16 @@ class Faq(models.Model):
     answers = models.JSONField(default=list)
 
 
+class Report(models.Model):
+    title = models.CharField(max_length=50, blank=True)
+    done = models.BooleanField(default=False)
+    content = models.TextField(max_length=500, blank=True)
+    authorId = models.IntegerField(blank=True)
+    createdAt = models.DateTimeField(auto_now_add=True)
+    isSecret = models.BooleanField(default=True)
+    answers = models.JSONField(default=list)
+
+
 class ChatRoom(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
     creatorId = models.IntegerField(default=0)

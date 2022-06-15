@@ -1,6 +1,6 @@
 
 from rest_framework import serializers
-from .models import Charm, ChatRoom, Chats, Event, Faq, Notice, Review, User
+from .models import Charm, ChatRoom, Chats, Event, Faq, Notice, Report, Review, User
 from rest_framework.authtoken.models import Token
 from django.contrib.auth.password_validation import validate_password
 
@@ -64,6 +64,12 @@ class NoticeSerializer(serializers.ModelSerializer):
 class FaqSerializer(serializers.ModelSerializer):
     class Meta:
         model = Faq
+        fields = "__all__"
+
+
+class ReportSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Report
         fields = "__all__"
 
 
