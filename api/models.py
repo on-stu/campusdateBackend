@@ -1,6 +1,4 @@
-from datetime import date
-from email.policy import default
-from re import T
+
 from uuid import uuid4
 from django.db import models
 from django.contrib.auth.models import (BaseUserManager, AbstractBaseUser)
@@ -69,6 +67,11 @@ class User(AbstractBaseUser):
     @property
     def is_staff(self):
         return self.is_admin
+
+
+class PushToken(models.Model):
+    userId = models.IntegerField()
+    # pushToken = models.CharField()
 
 
 class Notice(models.Model):
