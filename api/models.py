@@ -72,6 +72,8 @@ class User(AbstractBaseUser):
 class PushToken(models.Model):
     userId = models.IntegerField()
     # pushToken = models.CharField()
+    # dafsdfawefadvsd
+    #sadfadfawefw
 
 
 class Notice(models.Model):
